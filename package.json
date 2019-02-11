@@ -1,0 +1,12 @@
+{
+  "name": "samson_coding_challenge",
+  "version": "1.0.0",
+  "description": "forbes code challenge",
+  "main": "index.html",
+  "scripts": {
+    "start": "open http://localhost:3000 && node index.js",
+    "test": "start"
+  },
+  "author": "Samson Yuwono",
+  "license": "ISC"
+}
