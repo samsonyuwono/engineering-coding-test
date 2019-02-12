@@ -1,14 +1,35 @@
-const http = require('http');
+let value;
+function assignValue(event) {
+  value = event.target.value;
+  document.getElementById("search").value = event.target.value;
+}
 
-const hostname = '127.0.0.1';
-const port = 3000;
+function fetchImages() {
+  fetch(
+    `${secrets.BASE_URL}${secrets.API_KEY}&tags=${value}${secrets.FORMAT_URL}`
+  )
+    .then(res => res.json())
+    .then(json => {
+      renderPhotos(json.photos.photo);
+    });
+}
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+function renderPhotos(photos) {
+  let images = `${photos.map(
+    photo =>
+      '<div class="photo-container"><img src=' +
+      "http://farm" +
+      photo.farm +
+      ".staticflickr.com/" +
+      photo.server +
+      "/" +
+      photo.id +
+      "_" +
+      photo.secret +
+      ".jpg>" +
+      "</img></div>"
+  )}`;
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+  images = images.replace(/,/g, "");
+  document.getElementById("output").innerHTML = images;
+}

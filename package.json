@@ -4,9 +4,12 @@
   "description": "forbes code challenge",
   "main": "index.html",
   "scripts": {
-    "start": "open http://localhost:3000 && node index.js",
+    "start": "open http://localhost:3000 && node server.js",
     "test": "start"
   },
   "author": "Samson Yuwono",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.2.0"
+  }
 }
