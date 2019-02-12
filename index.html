@@ -4,19 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Samson Forbes Test</title>
+    <link rel="stylesheet" type-"text/css" href="styles.css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="main">
       <h1>Search Photo</h1>
-
-      <input
-        id="search"
-        type="text"
-        onChange="assignValue(event)"
-        placeholder="search text"
-      />
-      <button id="button" onclick="fetchImages()">Submit</button>
+      <div class="search-form">
+        <input
+          id="search"
+          type="text"
+          onChange="assignValue(event)"
+          placeholder="search text"
+        />
+        <button class="button" onclick="fetchImages()">Submit</button>
+      </div>
       <div id="output"></div>
     </div>
     <script src="secrets.js"></script>

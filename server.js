@@ -5,6 +5,7 @@ const port = 3000;
 
 let html;
 let js;
+let css;
 let secrets;
 
 fs.readFile("./index.html", (err, data) => {
@@ -12,6 +13,13 @@ fs.readFile("./index.html", (err, data) => {
     throw err;
   }
   html = data;
+});
+
+fs.readFile("./styles.css", (err, data) => {
+  if (err) {
+    throw err;
+  }
+  css = data;
 });
 
 fs.readFile("./index.js", (err, data) => {
@@ -30,6 +38,13 @@ fs.readFile("./secrets.js", (err, data) => {
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
+
+  if (req.url.indexOf(".css") != -1) {
+    res.writeHead(200, { "Content-Type": "text/css" });
+    res.write(css);
+    res.end();
+    return;
+  }
 
   if (req.url.indexOf("index.js") != -1) {
     res.writeHeader(200, { "Content-Type": "text/javascript" });
