@@ -25,6 +25,20 @@
       </div>
       <div id="output"></div>
     </div>
+
+    <div class="modal-container" id="modal">
+      <div class="modal-content">
+        <div class="close-button" onclick="closeImageModal()">X</div>
+        <img id="modal-image" />
+      </div>
+    </div>
+
+    <div class="pagination">
+      <button class="previous" href="#" onclick="previousPage()">
+        Previous
+      </button>
+      <button class="next" href="#" onclick="nextPage(true)">Next</button>
+    </div>
     <script src="secrets.js"></script>
     <script src="index.js"></script>
   </body>
