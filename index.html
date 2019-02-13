@@ -13,15 +13,15 @@
   </head>
   <body>
     <div class="main">
-      <h1>Search Photo</h1>
+      <h1>Search Photos</h1>
       <div class="search-form">
         <input
           id="search"
           type="text"
-          onChange="assignValue(event)"
+          onChange="assignSearchValue(event)"
           placeholder="search text"
         />
-        <button class="button" onclick="fetchImages()">Submit</button>
+        <button class="button" onclick="showResults()">Submit</button>
       </div>
       <div id="output"></div>
     </div>
@@ -33,11 +33,11 @@
       </div>
     </div>
 
-    <div class="pagination">
-      <button class="previous" href="#" onclick="previousPage()">
+    <div id="pagination" class="pagination">
+      <button id="previous" href="#" onclick="pagination(!next)">
         Previous
       </button>
-      <button class="next" href="#" onclick="nextPage(true)">Next</button>
+      <button id="next" href="#" onclick="pagination(next)">Next</button>
     </div>
     <script src="secrets.js"></script>
     <script src="index.js"></script>

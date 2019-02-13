@@ -9,7 +9,5 @@
   },
   "author": "Samson Yuwono",
   "license": "ISC",
-  "dependencies": {
-    "dotenv": "^6.2.0"
-  }
+  "dependencies": {}
 }
