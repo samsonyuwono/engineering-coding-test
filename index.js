@@ -14,9 +14,12 @@ function showResults() {
 function fetchImages() {
   if (value.length > 0) {
     fetch(
-      `${secrets.BASE_URL}${secrets.API_KEY}&tags=${value}${
-        secrets.FORMAT_URL
-      }${page}`
+      "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" +
+        `${secrets.API_KEY}` +
+        "&tags=" +
+        `${value}` +
+        "&format=json&nojsoncallback=1&per_page=10&page=" +
+        `${page}`
     )
       .then(res => res.json())
       .then(json => {
